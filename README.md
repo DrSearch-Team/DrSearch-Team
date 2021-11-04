@@ -12,11 +12,11 @@ An Android mobile application where users can search, review, and recommend doct
 
 ### App Evaluation
 - **Category:** Health 
-- **Mobile:** The application's development will be focused on mobile. However, future developments may expand this application to desktop. Most features will be accessible on mobile rather than desktop.
-- **Story:** People can search for a doctor via Google Maps API that displays local doctors within the general location. Clicking on a doctor displays contact information, address, and reviews about the individual. Application also allows for users to review selected doctor and provide a rating from 1 through 5. 
-- **Market:** All individuals in need of a doctor or someone in the medical field (ex. physical therapist, speech pathologist, chiropractor)
-- **Habit:** The application intends to be used when user is in need of a medical expert or is searching for a new for a medical expert.
-- **Scope:** First, we would start by developing a page where people are able to search for medical experts around the area. Then, users would begin rating their experiences. Future development would include ways to prevent bots and false ratings from appearing and a gamified way for medical examiners to be the first result when users are searching for one. 
+- **Mobile:** The application's development will be focused on mobile. However, future developments may expand this application to desktop. Most features will be accessible on mobile rather than desktop. Application will include location and maps feature.
+- **Story:** People can search for a doctor via Google Maps API that displays local doctors within the general location. Clicking on a doctor displays contact information, address, and reviews about the individual. Application also allows for users to review selected doctor and provide a rating from 1 through 5. There is no comprehensive mobile application that allows users to find a well qualified doctor.
+- **Market:** All individuals in need of a doctor or someone in the medical field (ex. physical therapist, speech pathologist, chiropractor).
+- **Habit:** The application intends to be used when user is in need of a medical expert or is searching for a new for a medical expert. Users will use and create on the application.
+- **Scope:** The application may be challenging in the following aspects: adding the Google Maps API, saving and rendering reviews from different users to a specific profile pages and businesses. First, we would start by developing a page where people are able to search for medical experts around the area. Then, users would begin rating their experiences. Future development would include ways to prevent bots and false ratings from appearing and a gamified way for medical examiners to be the first result when users are searching for one. 
 
 ## Product Spec
 
