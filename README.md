@@ -80,6 +80,7 @@ An Android mobile application where users can search, review, and recommend doct
 * Main/Search -> Favorites 
 
 ## Wireframes
+<img src="wireframe_sketch.png" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
 <img src="wireframe.png" width=600>
