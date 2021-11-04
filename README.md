@@ -8,27 +8,15 @@
 
 ## Overview
 ### Description
-[Description of your app]
-An Android Mobile App where users can search, review, and recommend doctors in their area.
+An Android mobile application where users can search, review, and recommend doctors and other medical experts in their area.
 
 ### App Evaluation
-[Evaluation of your app across the following attributes]
-- **Category:**
-Heath 
-- **Mobile:** 
-The apps development will be focused on mobile, however future developments hopes to expand this toward desktop. Most likely mobile will have more features than that of the desktop.
-
-- **Story:**
-People can search for a doctor via a google API that then displays local doctors within the general location. Clicking on a doctor displays contact information, address and comments about this individual. Also allows for users to comment on the doctor selected and give them a rating from 1 through 5. 
-
-- **Market:**
-All individuals, especially those who are in need of a doctor.
-
-- **Habit:**
-The app intends to be used for whenever a user needs a medical examiner or perhaps one is searching for a new/replacement for a medical examiner. 
-
-- **Scope:**
-First we could start by developing a page where people are able to connect with medical examiners, along with some ratings. Future development would include ways to prevent bots and false ratings from appearing plus a gamified way for medical examiners to be the first result when users are searching for one. 
+- **Category:** Health 
+- **Mobile:** The application's development will be focused on mobile. However, future developments may expand this application to desktop. Most features will be accessible on mobile rather than desktop.
+- **Story:** People can search for a doctor via Google Maps API that displays local doctors within the general location. Clicking on a doctor displays contact information, address, and reviews about the individual. Application also allows for users to review selected doctor and provide a rating from 1 through 5. 
+- **Market:** All individuals in need of a doctor or someone in the medical field (ex. physical therapist, speech pathologist, chiropractor)
+- **Habit:** The application intends to be used when user is in need of a medical expert or is searching for a new for a medical expert.
+- **Scope:** First, we would start by developing a page where people are able to search for medical experts around the area. Then, users would begin rating their experiences. Future development would include ways to prevent bots and false ratings from appearing and a gamified way for medical examiners to be the first result when users are searching for one. 
 
 ## Product Spec
 
@@ -36,21 +24,21 @@ First we could start by developing a page where people are able to connect with 
 
 **Required Must-have Stories**
 
-Login Screen (User name, Password, and application logo)
-Registration Screen (Username, Password, Age, Phone Number)
-User Screen a.k.a Profile Page (Will have username and favorite/ active doctors)
-Main Screen (Include buttons to favorite, see details)(includes search for doctors)(ideally will have ratings for each doctor along with reviews) (Will include Doctor address, Doctors Name)
-Favorites Screen (The page will include doctors favorited by the user)
-Details Screen (Will provide further information about the doctor)
-Compose Screen (Enables user to write a review)
+* Login Screen (Username, password, and application logo)
+* Registration Screen (Username, password, age, phone number)
+* Profile Screen (Will have username, profile image, and past reviews)
+* Main Screen (Include search for doctors, stream of doctors around the area)
+* Favorites Screen (The page will include doctors favorited by the user)
+* Details Screen (Will provide further information about a specific doctor)
+* Compose Screen (Enables users to write a review)
 
 **Optional Nice-to-have Stories**
-Have an email requirement for registrations
-The main screen should also include the Doctors phone number
-Details Screen will include hours of operation/rating/ and reviews.
-Doctors Nearby option
-Have a google maps interface
-Rate doctors based on user experience
+* Have an email requirement for registrations
+* The main screen should also include the doctor's phone number
+* Detail screen will include hours of operation, rating, and reviews
+* Doctors Nearby option
+* Have a Google Maps API interface in detail screen
+* Rate doctors based on user experience
 
 
 ### 2. Screen Archetypes
@@ -92,11 +80,9 @@ Rate doctors based on user experience
 * Main/Search -> Favorites 
 
 ## Wireframes
-[Add picture of your hand sketched wireframes in this section]
-<img src="wireframe.png" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
-<img src="wireframe.gif" width=600>
+<img src="wireframe.png" width=600>
 
 ### [BONUS] Interactive Prototype
 <img src="prototype.gif" width=250>
