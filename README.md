@@ -63,7 +63,6 @@ An Android mobile application where users can search, review, and recommend doct
    * Allows users to log out of application
 
 
-
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
@@ -92,10 +91,55 @@ An Android mobile application where users can search, review, and recommend doct
 [This section will be completed in Unit 9]
 
 ### Models
-[Add table of models]
+User
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------ |
+   | userId     | Number   | unique id for the user post (default field) |
+   | username    | String   | name of user |
+   | password        | String   | password of user |
+   | profileImage     | Image  | image of the user |
+   | reviewList | Array[reviewId] | array of review id created by user|
+   | favoritesList | Array[doctorId] | array of favorited doctor id|
+
+Review
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------ |
+   | reviewId     | Pointer to Review   | unique id for the review (default field) |
+   | userId     | Pointer to User | unique id for the user (default field) |
+   | doctorId        | Pointer to Doctor  | unique id for the doctor (default field) |
+   | review      | String   | description review of the doctor |
+   | rating | Number   | number rating of the doctor |
+   | createdAt     | DateTime | date when post is created (default field) |
+   | updatedAt     | DateTime | date when post is last updated (default field) |
+
+Doctor
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | doctorId     | Pointer to Doctor  | unique id of the doctor (default field) |
+   | doctorName | String | name of the doctor | 
+   | overallRating | Number   | number overall rating of the doctor |
+   | Location      | String   | location of the doctor|
+   | reviewList | Array[reviewId] | array of review id for doctor|
 
 ### Networking
-- [Add list of network requests by screen ]
+#### List of network requests by screen
+- Login Screen
+  - (Create/POST) Send username and password to check whether the user is going to login
+- Register Screen
+  - (Create/POST) Create a new user object
+- Detail Screen
+  - (Read/GET) Query a list of doctor objects near user location
+- Compose Screen
+  - (Create/POST) Create a new review object
+- Profile Screen
+  - (Read/GET) Query logged in user object
+  - (Read/GET) Query user object reviews
+- Favorites Screen
+  - (Read/GET) Query user object favorites
+
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
 
