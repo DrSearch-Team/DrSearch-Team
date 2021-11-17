@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -25,6 +26,7 @@ public class SearchFragment extends Fragment {
     private static final String TAG = "SearchFragment";
     private SearchView svDoctors;
     private RecyclerView rvSearchResults;
+    private Button detailBtn;
 
     public SearchFragment() {
         // Required empty public constructor
@@ -42,5 +44,6 @@ public class SearchFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         svDoctors = view.findViewById(R.id.svSearchDoctors);
         rvSearchResults = view.findViewById(R.id.rvSearchResults);
+        detailBtn = view.findViewById(R.id.detailBtn);
     }
 }
