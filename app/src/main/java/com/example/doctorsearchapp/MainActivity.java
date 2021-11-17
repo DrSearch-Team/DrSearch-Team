@@ -1,9 +1,11 @@
 package com.example.doctorsearchapp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -14,6 +16,10 @@ import com.example.doctorsearchapp.fragments.ProfileFragment;
 import com.example.doctorsearchapp.fragments.SearchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+
+import com.example.doctorsearchapp.fragments.DetailFragment;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
