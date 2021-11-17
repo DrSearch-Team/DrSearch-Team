@@ -2,13 +2,13 @@
 
 **Sprint One** 
 
-- [ ] Login Screen (Username, password, and application logo)
-- [ ] Registration Screen (Username, password, age, phone number)
-- [ ] Profile Screen (Will have username, profile image, and past reviews)
-- [ ] Main Screen (Include search for doctors, stream of doctors around the area)
-- [ ] Favorites Screen (The page will include doctors favorited by the user)
-- [ ] Details Screen (Will provide further information about a specific doctor)
-- [ ] Compose Screen (Enables users to write a review)
+- [x] Login Screen (Username, password, and application logo)
+- [x] Registration Screen (Username, password, age, phone number)
+- [x] Profile Screen (Will have username, profile image, and past reviews)
+- [x] Main Screen (Include search for doctors, stream of doctors around the area)
+- [x] Favorites Screen (The page will include doctors favorited by the user)
+- [x] Details Screen (Will provide further information about a specific doctor)
+- [x] Compose Screen (Enables users to write a review)
 
 
 ## Table of Contents
