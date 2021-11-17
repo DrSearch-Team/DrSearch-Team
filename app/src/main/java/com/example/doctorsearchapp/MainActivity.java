@@ -20,6 +20,15 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.example.doctorsearchapp.fragments.DetailFragment;
 
 import java.util.List;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.parse.LogInCallback;
+import com.parse.ParseException;
+import com.parse.ParseUser;
 
 public class MainActivity extends AppCompatActivity {
 
