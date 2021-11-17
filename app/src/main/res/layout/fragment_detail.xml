@@ -5,12 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    tools:context=".fragments.DetailFragment">
 
-    <FrameLayout
-        android:id="@+id/flContainer"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reviewStream"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" />
 
-    </FrameLayout>
 </LinearLayout>
+
+
+
