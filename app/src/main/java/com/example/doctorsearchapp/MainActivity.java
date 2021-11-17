@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment fragment = new SearchFragment();   // How to not initialize?
+                Fragment fragment = new SearchFragment();                                                       // ??? How to do without initializing?
                 switch (item.getItemId()) {
                     case R.id.action_search:
                         fragment = new SearchFragment();
