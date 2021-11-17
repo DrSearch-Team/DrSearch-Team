@@ -28,8 +28,7 @@
         android:layout_marginTop="35dp"
         android:layout_marginEnd="60dp"
         android:layout_toEndOf="@+id/ivProfileImage"
-        android:text="TextView"
-        tools:text="Test User" />
+        android:text="Test User" />
 
     <TextView
         android:id="@+id/tvUserId"
@@ -41,6 +40,5 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="150dp"
         android:layout_toEndOf="@+id/ivProfileImage"
-        android:text="TextView"
-        tools:text="123456" />
+        android:text="123456" />
 </RelativeLayout>
