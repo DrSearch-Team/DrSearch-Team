@@ -14,13 +14,9 @@ import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.TextView;
 
+import com.example.doctorsearchapp.MainActivity;
 import com.example.doctorsearchapp.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SearchFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class SearchFragment extends Fragment {
 
     private static final String TAG = "SearchFragment";
@@ -45,5 +41,13 @@ public class SearchFragment extends Fragment {
         svDoctors = view.findViewById(R.id.svSearchDoctors);
         rvSearchResults = view.findViewById(R.id.rvSearchResults);
         detailBtn = view.findViewById(R.id.detailBtn);
+
+        detailBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity activity = (MainActivity) getContext();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.flContainer, new DetailFragment()).commit();
+            }
+        });
     }
 }
