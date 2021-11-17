@@ -1,5 +1,16 @@
 # DrSearch 
 
+**Sprint One** 
+
+-[ ] Login Screen (Username, password, and application logo)
+-[ ] Registration Screen (Username, password, age, phone number)
+-[ ] Profile Screen (Will have username, profile image, and past reviews)
+-[ ] Main Screen (Include search for doctors, stream of doctors around the area)
+-[ ] Favorites Screen (The page will include doctors favorited by the user)
+-[ ] Details Screen (Will provide further information about a specific doctor)
+-[ ] Compose Screen (Enables users to write a review)
+
+
 ## Table of Contents
 1. [Overview](#Overview)
 1. [Product Spec](#Product-Spec)
