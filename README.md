@@ -1,6 +1,6 @@
 # DrSearch 
 
-**Sprint One** 
+**Sprint 1 User Stories** 
 
 - [x] Login Screen (Username, password, and application logo)
 - [x] Registration Screen (Username, password, age, phone number)
@@ -10,6 +10,9 @@
 - [x] Details Screen (Will provide further information about a specific doctor)
 - [x] Compose Screen (Enables users to write a review)
 
+**Sprint 1 Walkthrough**
+
+<img src="walkthrough_sprint_1.gif" width=250>
 
 ## Table of Contents
 1. [Overview](#Overview)
