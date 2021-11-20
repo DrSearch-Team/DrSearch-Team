@@ -13,7 +13,7 @@ public class ParseAuth extends Application {
 
         // ParseObject.registerSubclass(Post.class);
 
-        // Authenication for Database
+        // Authentication for Database
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId("GdG8ICdTxWldUJmvjvk5wus6DwbTLTuqhVouz4Go")
                 .clientKey("0cfiRHSq3PUnGEN3MUBPuW3OA7OF8HuOGbo7fWm5")
