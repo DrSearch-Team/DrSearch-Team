@@ -42,11 +42,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.bottomNavigation);
-
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment fragment = new SearchFragment();                                                       // ??? How to do without initializing?
+                Fragment fragment = new SearchFragment();   // ??? How to do without initializing?
+
                 switch (item.getItemId()) {
                     case R.id.action_search:
                         fragment = new SearchFragment();
@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Profile", Toast.LENGTH_SHORT).show();
                         break;
                 }
+
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
                 return false;
             }
