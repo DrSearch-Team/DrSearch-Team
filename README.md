@@ -1,5 +1,17 @@
 # DrSearch 
 
+**Sprint 2 User Stories** 
+
+- [ ] Setup doctor object and render views on search screen
+- [ ] Setup review object and render views on detail screen
+- [ ] Send users to Google Maps for directions from detail screen
+
+**Sprint 2 Walkthrough**
+
+<img src="walkthrough_sprint_2.gif" width=250>
+
+#
+
 **Sprint 1 User Stories** 
 
 - [x] Login Screen (Username, password, and application logo)
