@@ -91,7 +91,7 @@ public class SearchFragment extends Fragment {
                     return;
                 }
                 for (Doctor doctor : doctors) {
-                    Log.i(TAG, "Doctor: " + doctor.getDoctorName());
+                    Log.i(TAG, "Doctor: " + doctor.getDoctorName() + ", " + doctor.getLocation());
                 }
                 allDoctors.addAll(doctors);
                 adapter.notifyDataSetChanged();
