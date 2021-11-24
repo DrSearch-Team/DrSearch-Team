@@ -19,7 +19,7 @@
         tools:src="@tools:sample/avatars" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/tvReviewDescription"
         android:layout_width="333dp"
         android:layout_height="140dp"
         android:layout_below="@+id/profilePictureIV"
@@ -41,7 +41,7 @@
         android:id="@+id/postBT"
         android:layout_width="127dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextTextMultiLine"
+        android:layout_below="@+id/tvReviewDescription"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="39dp"
