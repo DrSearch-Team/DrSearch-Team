@@ -6,7 +6,7 @@ public class Doctor {
 
     public int doctorId;
     public String doctorName;
-    public int overallRating;
+    public float overallRating;
     public String location;
     public ArrayList<Integer> reviewList;
 
@@ -36,7 +36,7 @@ public class Doctor {
         this.doctorName = doctorName;
     }
 
-    public int getOverallRating() {
+    public float getOverallRating() {
         return overallRating;
     }
 
