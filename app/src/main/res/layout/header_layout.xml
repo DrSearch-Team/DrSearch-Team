@@ -60,4 +60,10 @@
         android:text="Leave a Review"
         android:textSize="12sp"
         app:cornerRadius="30dp" />
+
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="198dp"
+        android:layout_height="wrap_content"
+        android:text="Search" />
 </LinearLayout>
