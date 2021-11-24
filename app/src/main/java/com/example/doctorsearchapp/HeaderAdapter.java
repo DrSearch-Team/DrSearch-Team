@@ -1,6 +1,8 @@
 package com.example.doctorsearchapp;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,19 +46,37 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
         return 1;
     }
 
+
+
     class HeaderViewHolder extends  RecyclerView.ViewHolder
     {
         private Button reviewBtn;
+        private Button searchBtn;
 
         public HeaderViewHolder(@NonNull View itemView) {
             super(itemView);
             reviewBtn = itemView.findViewById(R.id.reviewBtn);
+            searchBtn = itemView.findViewById(R.id.btnSearch);
 
             reviewBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     MainActivity activity = (MainActivity) context;
                     activity.getSupportFragmentManager().beginTransaction().replace(R.id.flContainer,new ComposeFragment()).commit();
+                }
+            });
+
+            searchBtn.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public  void onClick(View view){
+
+                    Uri gmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=1322 Mauna Loa Road, Tustin, CA");
+                    // 1171 El Camino Real, Tustin, CA 92780
+
+                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmIntentUri);
+                    mapIntent.setPackage("com.google.android.apps.maps");
+
+                    context.startActivity(mapIntent);
                 }
             });
         }

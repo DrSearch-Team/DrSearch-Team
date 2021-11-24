@@ -1,5 +1,7 @@
 package com.example.doctorsearchapp.fragments;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 
@@ -58,6 +60,5 @@ public class DetailFragment extends Fragment {
 
         recyclerView.setAdapter(concatAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
     }
 }
