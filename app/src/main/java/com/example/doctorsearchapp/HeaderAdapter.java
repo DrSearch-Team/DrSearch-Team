@@ -1,8 +1,11 @@
 package com.example.doctorsearchapp;
 
+import static com.example.doctorsearchapp.MainActivity.TAG;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +18,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.doctorsearchapp.fragments.ComposeFragment;
 import com.example.doctorsearchapp.fragments.DetailFragment;
+import com.example.doctorsearchapp.models.Doctor;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseQuery;
 
+import java.util.List;
 import java.util.concurrent.Callable;
 
 public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderViewHolder> {
@@ -52,6 +60,8 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
     {
         private Button reviewBtn;
         private Button searchBtn;
+        private String address;
+        private List<Doctor> allDoctors;
 
         public HeaderViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -69,6 +79,19 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
             searchBtn.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public  void onClick(View view){
+                    ParseQuery<Doctor> query = ParseQuery.getQuery(Doctor.class);
+
+                    query.findInBackground(new FindCallback<Doctor>() {
+                        @Override
+                        public void done(List<Doctor> objects, ParseException e) {
+                            if (e == null){
+                                Log.d(TAG, "Parse" + objects);
+                            } else {
+
+                            }
+                        }
+                    });
+
 
                     Uri gmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=1322 Mauna Loa Road, Tustin, CA");
                     // 1171 El Camino Real, Tustin, CA 92780
