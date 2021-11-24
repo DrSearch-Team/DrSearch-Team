@@ -23,13 +23,19 @@ import android.widget.Toast;
 import com.example.doctorsearchapp.HeaderAdapter;
 import com.example.doctorsearchapp.R;
 import com.example.doctorsearchapp.ReviewAdapter;
+import com.example.doctorsearchapp.models.Reviews;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseQuery;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Callable;
 
 public class DetailFragment extends Fragment {
 
-    private String[] usernames;
-    private String[] reviews;
+    public static final String TAG = "DetailFragment";
+    private List<Reviews> reviews;
     private RecyclerView recyclerView;
     private ReviewAdapter adapter;
     private HeaderAdapter headerAdapter;
@@ -51,14 +57,41 @@ public class DetailFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         recyclerView = view.findViewById(R.id.reviewStream);
-        usernames = getResources().getStringArray(R.array.usernameArray);
-        reviews = getResources().getStringArray(R.array.reviewsArray);
+        reviews = new ArrayList<>();
 
-        adapter = new ReviewAdapter(usernames,reviews,getContext());
+        adapter = new ReviewAdapter(reviews,getContext());
         headerAdapter = new HeaderAdapter(getContext());
         concatAdapter = new ConcatAdapter(headerAdapter,adapter);
 
         recyclerView.setAdapter(concatAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        queryPost();
+    }
+
+    private void queryPost()
+    {
+        ParseQuery<Reviews> query = ParseQuery.getQuery(Reviews.class);
+        query.include(Reviews.KEY_USER);
+        query.setLimit(20);
+
+        query.findInBackground(new FindCallback<Reviews>() {
+
+            @Override
+            public void done(List<Reviews> newReviews, ParseException e) {
+
+                if (e != null){
+                    Log.e(TAG,"Issue with getting posts", e);
+                    return;
+                }
+                for(Reviews review : newReviews){
+                    Log.i(TAG,"Post: " + review.getReview() + ", username:" + review.getUser().getUsername());
+                }
+
+                adapter.clear();
+                adapter.addAll(newReviews);
+            }
+        });
+
     }
 }
