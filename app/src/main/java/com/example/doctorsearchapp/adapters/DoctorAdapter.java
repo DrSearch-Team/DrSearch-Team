@@ -59,7 +59,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder
         public void bind(Doctor doctor) {
             tvDoctorName.setText(doctor.getDoctorName());
             tvLocation.setText(doctor.getLocation());
-            rbOverallRating.setRating(doctor.getOverallRating());
+            //rbOverallRating.setRating(doctor.getOverallRating());
         }
     }
 }

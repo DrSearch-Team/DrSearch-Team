@@ -1,5 +1,6 @@
 package com.example.doctorsearchapp;
 
+import com.example.doctorsearchapp.models.Doctor;
 import com.parse.Parse;
 import com.parse.ParseObject;
 
@@ -11,7 +12,8 @@ public class ParseAuth extends Application {
     public void onCreate(){
         super.onCreate();
 
-        // ParseObject.registerSubclass(Post.class);
+        // Register parse models
+        ParseObject.registerSubclass(Doctor.class);
 
         // Authentication for Database
         Parse.initialize(new Parse.Configuration.Builder(this)
