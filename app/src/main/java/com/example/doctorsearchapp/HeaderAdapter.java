@@ -84,22 +84,26 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
                     query.findInBackground(new FindCallback<Doctor>() {
                         @Override
                         public void done(List<Doctor> objects, ParseException e) {
-                            if (e == null){
-                                Log.d(TAG, "Parse" + objects);
-                            } else {
-
+                            if (e != null){
+                                Log.e(TAG, "Issue with getting doctors", e);
+                                return;
                             }
+
+                            for (Doctor doctor : objects) {
+                                address = doctor.getLocation();
+                                Log.i(TAG, "Doctor: " + address);
+                            }
+
+                            Uri gmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=" + address);
+                            // 1171 El Camino Real, Tustin, CA 92780
+
+                            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmIntentUri);
+                            mapIntent.setPackage("com.google.android.apps.maps");
+
+                            context.startActivity(mapIntent);
                         }
                     });
 
-
-                    Uri gmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=1322 Mauna Loa Road, Tustin, CA");
-                    // 1171 El Camino Real, Tustin, CA 92780
-
-                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmIntentUri);
-                    mapIntent.setPackage("com.google.android.apps.maps");
-
-                    context.startActivity(mapIntent);
                 }
             });
         }
