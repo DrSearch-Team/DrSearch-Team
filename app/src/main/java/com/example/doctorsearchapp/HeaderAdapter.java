@@ -3,6 +3,7 @@ package com.example.doctorsearchapp;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,12 +16,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.doctorsearchapp.fragments.ComposeFragment;
 import com.example.doctorsearchapp.fragments.DetailFragment;
+import com.example.doctorsearchapp.models.Doctor;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseQuery;
 
 import java.util.concurrent.Callable;
 
 public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderViewHolder> {
 
     private Context context;
+    String address;
 
     public HeaderAdapter(Context context)
     {
@@ -69,14 +75,28 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
             searchBtn.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public  void onClick(View view){
+                    ParseQuery<Doctor> query = ParseQuery.getQuery(Doctor.class);
+                    query.getInBackground("DFs3HAdJay", new GetCallback<Doctor>() {
+                        @Override
+                        public void done(Doctor doctor, ParseException e) {
+                            if (e != null) {
+                                Log.e("SearchFragment", "Issue with getting doctors", e);
+                                return;
+                            }
+                            address = doctor.getLocation();
+                            Log.i("SearchFragment", "Location: " + address);
 
-                    Uri gmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=1322 Mauna Loa Road, Tustin, CA");
-                    // 1171 El Camino Real, Tustin, CA 92780
+                            Uri gmIntentUri =  Uri.parse("geo:0,0?q=" + address);
 
-                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmIntentUri);
-                    mapIntent.setPackage("com.google.android.apps.maps");
+                            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmIntentUri);
+                            mapIntent.setPackage("com.google.android.apps.maps");
 
-                    context.startActivity(mapIntent);
+                            context.startActivity(mapIntent);
+                        }
+                    });
+
+
+
                 }
             });
         }
