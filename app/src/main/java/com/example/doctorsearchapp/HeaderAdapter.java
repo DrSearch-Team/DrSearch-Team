@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.doctorsearchapp.fragments.ComposeFragment;
 import com.example.doctorsearchapp.fragments.DetailFragment;
 import com.example.doctorsearchapp.models.Doctor;
-import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 
@@ -29,6 +29,7 @@ import java.util.concurrent.Callable;
 public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderViewHolder> {
 
     private Context context;
+    String address;
 
     public HeaderAdapter(Context context)
     {
@@ -81,21 +82,17 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
                 public  void onClick(View view){
                     ParseQuery<Doctor> query = ParseQuery.getQuery(Doctor.class);
 
-                    query.findInBackground(new FindCallback<Doctor>() {
+                    query.getInBackground("DFs3HAdJay", new GetCallback<Doctor>() {
                         @Override
-                        public void done(List<Doctor> objects, ParseException e) {
-                            if (e != null){
-                                Log.e(TAG, "Issue with getting doctors", e);
+                        public void done(Doctor doctor, ParseException e) {
+                            if (e != null) {
+                                Log.e("SearchFragment", "Issue with getting doctors", e);
                                 return;
                             }
+                            address = doctor.getLocation();
+                            Log.i("SearchFragment", "Location: " + address);
 
-                            for (Doctor doctor : objects) {
-                                address = doctor.getLocation();
-                                Log.i(TAG, "Doctor: " + address);
-                            }
-
-                            Uri gmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=" + address);
-                            // 1171 El Camino Real, Tustin, CA 92780
+                            Uri gmIntentUri =  Uri.parse("geo:0,0?q=" + address);
 
                             Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmIntentUri);
                             mapIntent.setPackage("com.google.android.apps.maps");
@@ -103,7 +100,6 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
                             context.startActivity(mapIntent);
                         }
                     });
-
                 }
             });
         }
