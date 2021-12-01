@@ -64,31 +64,37 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
 
     class HeaderViewHolder extends  RecyclerView.ViewHolder
     {
+        private TextView nameTV;
+        private TextView addressTV;
         private Button reviewBtn;
         private Button searchBtn;
-        private TextView addressTV;
         private String address;
         private List<Doctor> allDoctors;
 
         // Bundle test
-        private TextView nameTV;
 
         public HeaderViewHolder(@NonNull View itemView) {
             super(itemView);
+            nameTV = itemView.findViewById(R.id.nameTV);
+            addressTV = itemView.findViewById(R.id.addressTV);
             reviewBtn = itemView.findViewById(R.id.reviewBtn);
             searchBtn = itemView.findViewById(R.id.btnSearch);
 
-            // Bundle test
-            nameTV = itemView.findViewById(R.id.nameTV);
             nameTV.setText(doctor.getDoctorName());
-            addressTV = itemView.findViewById(R.id.addressTV);
             addressTV.setText(doctor.getLocation());
 
             reviewBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    // Get doctor object from DetailFragment
+                    // Send doctor object to ComposeFragment
+                    ComposeFragment composeFragment = new ComposeFragment();
+                    Bundle b = new Bundle();
+                    b.putParcelable("doctor", doctor);
+                    composeFragment.setArguments(b);
+
                     MainActivity activity = (MainActivity) context;
-                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.flContainer,new ComposeFragment()).commit();
+                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.flContainer,composeFragment).commit();
                 }
             });
 

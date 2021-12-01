@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import com.example.doctorsearchapp.HeaderAdapter;
 import com.example.doctorsearchapp.R;
 import com.example.doctorsearchapp.ReviewAdapter;
+import com.example.doctorsearchapp.models.Doctor;
 import com.example.doctorsearchapp.models.Reviews;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -33,6 +34,7 @@ public class DetailFragment extends Fragment {
     private ReviewAdapter adapter;
     private HeaderAdapter headerAdapter;
     private ConcatAdapter concatAdapter;
+    private Doctor doctor;
 
     public DetailFragment() {
         // Required empty public constructor
@@ -52,12 +54,13 @@ public class DetailFragment extends Fragment {
         recyclerView = view.findViewById(R.id.reviewStream);
         reviews = new ArrayList<>();
 
-        // Bundle test
-        Bundle b = this.getArguments();
-
         adapter = new ReviewAdapter(reviews,getContext());
-        // Bundle test
+
+        // Get doctor object from SearchFragment/DoctorAdapter
+        // Send doctor object to HeaderAdapter
+        Bundle b = this.getArguments();
         headerAdapter = new HeaderAdapter(getContext(), b.getParcelable("doctor"));
+
         concatAdapter = new ConcatAdapter(headerAdapter,adapter);
 
         recyclerView.setAdapter(concatAdapter);

@@ -13,8 +13,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.doctorsearchapp.HeaderAdapter;
 import com.example.doctorsearchapp.MainActivity;
 import com.example.doctorsearchapp.R;
+import com.example.doctorsearchapp.models.Doctor;
 import com.example.doctorsearchapp.models.Reviews;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -25,6 +27,7 @@ public class ComposeFragment extends Fragment {
 
     Button postBtn;
     TextView reviewDescription;
+    Doctor doctor;
 
     public ComposeFragment() {
         // Required empty public constructor
@@ -43,6 +46,10 @@ public class ComposeFragment extends Fragment {
 
         postBtn = view.findViewById(R.id.postBT);
         reviewDescription = view.findViewById(R.id.tvReviewDescription);
+
+        // Get doctor object from DetailFragment/HeaderAdapter
+        Bundle b = this.getArguments();
+        doctor = b.getParcelable("doctor");
 
         postBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,8 +73,15 @@ public class ComposeFragment extends Fragment {
             @Override
             public void done(ParseException e) {
                 reviewDescription.setText("");
+
+                // Send doctor object back to DetailFragment
+                DetailFragment detailFragment = new DetailFragment();
+                Bundle b = new Bundle();
+                b.putParcelable("doctor", doctor);
+                detailFragment.setArguments(b);
+
                 MainActivity activity = (MainActivity) getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.flContainer,new DetailFragment()).commit();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.flContainer, detailFragment).commit();
             }
         });
     }

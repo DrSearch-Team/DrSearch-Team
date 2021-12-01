@@ -46,6 +46,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Send doctor object to DetailFragment/DoctorAdapter
                 DetailFragment detailFragment = new DetailFragment();
                 Bundle b = new Bundle();
                 b.putParcelable("doctor", doctor);
