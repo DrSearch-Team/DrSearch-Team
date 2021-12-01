@@ -72,6 +72,7 @@ public class DetailFragment extends Fragment {
     private void queryPost()
     {
         ParseQuery<Reviews> query = ParseQuery.getQuery(Reviews.class);
+        query.addDescendingOrder(Reviews.KEY_CREATED_AT);
         query.include(Reviews.KEY_USER);
         query.setLimit(20);
 

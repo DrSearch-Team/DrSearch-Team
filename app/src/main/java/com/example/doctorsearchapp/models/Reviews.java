@@ -9,6 +9,7 @@ public class Reviews extends ParseObject {
 
     public static final String KEY_REVIEW = "Review";
     public static final String KEY_USER = "userId";
+    public static final String KEY_CREATED_AT = "createdAt";
     public static final String KEY_DOCTOR = "doctorId";
 
     public String getReview()
