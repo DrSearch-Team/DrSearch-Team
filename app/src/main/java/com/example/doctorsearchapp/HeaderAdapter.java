@@ -31,14 +31,14 @@ import java.util.concurrent.Callable;
 public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderViewHolder> {
 
     private Context context;
-    String doctorId;
+    Doctor doctor;
     String address;
 
     // Bundle test
-    public HeaderAdapter(Context context, String newDoctorId)
+    public HeaderAdapter(Context context, Doctor currentDoctor)
     {
         this.context = context;
-        doctorId = newDoctorId;
+        doctor = currentDoctor;
     }
 
     // Inflate the view and return the HeaderViewHolder
@@ -66,6 +66,7 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
     {
         private Button reviewBtn;
         private Button searchBtn;
+        private TextView addressTV;
         private String address;
         private List<Doctor> allDoctors;
 
@@ -79,7 +80,9 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
 
             // Bundle test
             nameTV = itemView.findViewById(R.id.nameTV);
-            nameTV.setText(doctorId);
+            nameTV.setText(doctor.getDoctorName());
+            addressTV = itemView.findViewById(R.id.addressTV);
+            addressTV.setText(doctor.getLocation());
 
             reviewBtn.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -17,6 +17,8 @@ import com.example.doctorsearchapp.R;
 import com.example.doctorsearchapp.fragments.DetailFragment;
 import com.example.doctorsearchapp.models.Doctor;
 
+import org.parceler.Parcels;
+
 import java.util.List;
 
 public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder> {
@@ -44,10 +46,9 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle b = new Bundle();
-                b.putString("doctorId", doctor.getDoctorName());
-
                 DetailFragment detailFragment = new DetailFragment();
+                Bundle b = new Bundle();
+                b.putParcelable("doctor", doctor);
                 detailFragment.setArguments(b);
 
                 MainActivity activity = (MainActivity) context;
