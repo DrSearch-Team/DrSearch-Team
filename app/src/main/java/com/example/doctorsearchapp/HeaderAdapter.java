@@ -95,7 +95,6 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
                             }
 
                             Uri gmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=" + address);
-                            // 1171 El Camino Real, Tustin, CA 92780
 
                             Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmIntentUri);
                             mapIntent.setPackage("com.google.android.apps.maps");
