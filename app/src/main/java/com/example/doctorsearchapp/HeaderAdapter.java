@@ -5,11 +5,13 @@ import static com.example.doctorsearchapp.MainActivity.TAG;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -29,11 +31,14 @@ import java.util.concurrent.Callable;
 public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderViewHolder> {
 
     private Context context;
+    String doctorId;
     String address;
 
-    public HeaderAdapter(Context context)
+    // Bundle test
+    public HeaderAdapter(Context context, String newDoctorId)
     {
         this.context = context;
+        doctorId = newDoctorId;
     }
 
     // Inflate the view and return the HeaderViewHolder
@@ -64,10 +69,17 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
         private String address;
         private List<Doctor> allDoctors;
 
+        // Bundle test
+        private TextView nameTV;
+
         public HeaderViewHolder(@NonNull View itemView) {
             super(itemView);
             reviewBtn = itemView.findViewById(R.id.reviewBtn);
             searchBtn = itemView.findViewById(R.id.btnSearch);
+
+            // Bundle test
+            nameTV = itemView.findViewById(R.id.nameTV);
+            nameTV.setText(doctorId);
 
             reviewBtn.setOnClickListener(new View.OnClickListener() {
                 @Override

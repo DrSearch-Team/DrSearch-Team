@@ -1,7 +1,7 @@
 package com.example.doctorsearchapp.adapters;
 
 import android.content.Context;
-import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.doctorsearchapp.MainActivity;
 import com.example.doctorsearchapp.R;
-import com.example.doctorsearchapp.fragments.ComposeFragment;
 import com.example.doctorsearchapp.fragments.DetailFragment;
 import com.example.doctorsearchapp.models.Doctor;
 
@@ -45,8 +44,14 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle b = new Bundle();
+                b.putString("doctorId", doctor.getDoctorName());
+
+                DetailFragment detailFragment = new DetailFragment();
+                detailFragment.setArguments(b);
+
                 MainActivity activity = (MainActivity) context;
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.flContainer, new DetailFragment()).commit();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.flContainer, detailFragment).commit();
             }
         });
     }
