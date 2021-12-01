@@ -14,14 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.SearchView;
-import android.widget.TextView;
 
 import com.example.doctorsearchapp.MainActivity;
 import com.example.doctorsearchapp.R;
 import com.example.doctorsearchapp.adapters.DoctorAdapter;
 import com.example.doctorsearchapp.models.Doctor;
 import com.parse.FindCallback;
-import com.parse.ParseEncoder;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 

@@ -61,10 +61,10 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Profile", Toast.LENGTH_SHORT).show();
                         break;
                 }
-
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
                 return false;
             }
         });
+        bottomNavigationView.setSelectedItemId(R.id.action_search);
     }
 }

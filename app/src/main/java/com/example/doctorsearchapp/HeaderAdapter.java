@@ -5,11 +5,13 @@ import static com.example.doctorsearchapp.MainActivity.TAG;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -19,7 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.doctorsearchapp.fragments.ComposeFragment;
 import com.example.doctorsearchapp.fragments.DetailFragment;
 import com.example.doctorsearchapp.models.Doctor;
-import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 
@@ -29,10 +31,14 @@ import java.util.concurrent.Callable;
 public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderViewHolder> {
 
     private Context context;
+    Doctor doctor;
+    String address;
 
-    public HeaderAdapter(Context context)
+    // Bundle test
+    public HeaderAdapter(Context context, Doctor currentDoctor)
     {
         this.context = context;
+        doctor = currentDoctor;
     }
 
     // Inflate the view and return the HeaderViewHolder
@@ -60,13 +66,23 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
     {
         private Button reviewBtn;
         private Button searchBtn;
+        private TextView addressTV;
         private String address;
         private List<Doctor> allDoctors;
+
+        // Bundle test
+        private TextView nameTV;
 
         public HeaderViewHolder(@NonNull View itemView) {
             super(itemView);
             reviewBtn = itemView.findViewById(R.id.reviewBtn);
             searchBtn = itemView.findViewById(R.id.btnSearch);
+
+            // Bundle test
+            nameTV = itemView.findViewById(R.id.nameTV);
+            nameTV.setText(doctor.getDoctorName());
+            addressTV = itemView.findViewById(R.id.addressTV);
+            addressTV.setText(doctor.getLocation());
 
             reviewBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -81,20 +97,17 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
                 public  void onClick(View view){
                     ParseQuery<Doctor> query = ParseQuery.getQuery(Doctor.class);
 
-                    query.findInBackground(new FindCallback<Doctor>() {
+                    query.getInBackground("DFs3HAdJay", new GetCallback<Doctor>() {
                         @Override
-                        public void done(List<Doctor> objects, ParseException e) {
-                            if (e != null){
-                                Log.e(TAG, "Issue with getting doctors", e);
+                        public void done(Doctor doctor, ParseException e) {
+                            if (e != null) {
+                                Log.e("SearchFragment", "Issue with getting doctors", e);
                                 return;
                             }
+                            address = doctor.getLocation();
+                            Log.i("SearchFragment", "Location: " + address);
 
-                            for (Doctor doctor : objects) {
-                                address = doctor.getLocation();
-                                Log.i(TAG, "Doctor: " + address);
-                            }
-
-                            Uri gmIntentUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=" + address);
+                            Uri gmIntentUri =  Uri.parse("geo:0,0?q=" + address);
 
                             Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmIntentUri);
                             mapIntent.setPackage("com.google.android.apps.maps");
@@ -102,7 +115,6 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
                             context.startActivity(mapIntent);
                         }
                     });
-
                 }
             });
         }

@@ -2,9 +2,9 @@
 
 **Sprint 2 User Stories** 
 
-- [ ] Setup doctor object and render views on search screen
-- [ ] Setup review object and render views on detail screen
-- [ ] Send users to Google Maps for directions from detail screen
+- [x] Setup doctor object and render views on search screen
+- [x] Setup review object and render views on detail screen
+- [x] Send users to Google Maps for directions from detail screen
 
 **Sprint 2 Walkthrough**
 
