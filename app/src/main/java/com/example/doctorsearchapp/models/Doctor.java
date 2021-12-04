@@ -7,12 +7,15 @@ import com.parse.ParseObject;
 
 import org.parceler.Parcel;
 
+import java.util.ArrayList;
+
 @ParseClassName("Doctor")
 @Parcel(analyze = Doctor.class)
 public class Doctor extends ParseObject implements Parcelable {
 
     public static final String KEY_DOCTOR_NAME = "doctorName";
     public static final String KEY_LOCATION = "location";
+    public static final String KEY_REVIEW_LIST = "reviewList";
 //    public static final String KEY_RATING = "overallRating";
 
     // Empty constructor for Parceler library
@@ -28,6 +31,19 @@ public class Doctor extends ParseObject implements Parcelable {
 
     public String getLocation() {
         return getString(KEY_LOCATION);
+    }
+
+    public ArrayList<String> getReviews()
+    {
+        return (ArrayList<String>) get(KEY_REVIEW_LIST);
+    }
+
+    public void saveReview(String reviewId)
+    {
+        ArrayList<String> reviews = getReviews();
+        reviews.add(reviewId);
+        put(KEY_REVIEW_LIST, reviews);
+        saveInBackground();
     }
 
     public void setLocation(String location) {

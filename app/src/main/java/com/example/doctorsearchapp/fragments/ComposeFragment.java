@@ -75,6 +75,8 @@ public class ComposeFragment extends Fragment {
                 reviewDescription.setText("");
 
                 // Send doctor object back to DetailFragment
+                doctor.saveReview(review.getObjectId());
+
                 DetailFragment detailFragment = new DetailFragment();
                 Bundle b = new Bundle();
                 b.putParcelable("doctor", doctor);

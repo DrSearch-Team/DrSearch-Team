@@ -59,7 +59,8 @@ public class DetailFragment extends Fragment {
         // Get doctor object from SearchFragment/DoctorAdapter
         // Send doctor object to HeaderAdapter
         Bundle b = this.getArguments();
-        headerAdapter = new HeaderAdapter(getContext(), b.getParcelable("doctor"));
+        doctor = b.getParcelable("doctor");
+        headerAdapter = new HeaderAdapter(getContext(), doctor);
 
         concatAdapter = new ConcatAdapter(headerAdapter,adapter);
 
@@ -72,6 +73,7 @@ public class DetailFragment extends Fragment {
     private void queryPost()
     {
         ParseQuery<Reviews> query = ParseQuery.getQuery(Reviews.class);
+        query.whereContainedIn("objectId", doctor.getReviews());
         query.addDescendingOrder(Reviews.KEY_CREATED_AT);
         query.include(Reviews.KEY_USER);
         query.setLimit(20);
