@@ -34,8 +34,6 @@ public class SearchFragment extends Fragment {
     protected DoctorAdapter adapter;
     protected List<Doctor> allDoctors;
 
-    private Button detailBtn;
-
     public SearchFragment() {
         // Required empty public constructor
     }
@@ -53,9 +51,6 @@ public class SearchFragment extends Fragment {
         svDoctors = view.findViewById(R.id.svSearchDoctors);
         rvSearchResults = view.findViewById(R.id.rvSearchResults);
 
-        // Set layout for each row in recycler view
-        detailBtn = view.findViewById(R.id.detailBtn);
-
         // Create data source and adapter
         allDoctors = new ArrayList<>();
         adapter = new DoctorAdapter(getContext(), allDoctors);
@@ -67,14 +62,6 @@ public class SearchFragment extends Fragment {
         rvSearchResults.setLayoutManager(new LinearLayoutManager(getContext()));
 
         queryDoctors();
-
-        detailBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MainActivity activity = (MainActivity) getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.flContainer, new DetailFragment()).commit();
-            }
-        });
     }
 
     protected void queryDoctors() {
