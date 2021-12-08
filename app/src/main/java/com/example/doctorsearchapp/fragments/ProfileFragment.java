@@ -95,7 +95,6 @@ public class ProfileFragment extends Fragment {
                 }
             }
         });
-        // Specify the object id
     }
 }
 /*
