@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="18dp"
         android:layout_marginTop="18dp"
-        app:srcCompat="@drawable/ic_baseline_person_24"
+        app:srcCompat="@drawable/ic_user"
         tools:src="@tools:sample/avatars" />
 
     <TextView

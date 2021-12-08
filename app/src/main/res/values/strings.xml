@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">DoctorSearchApp</string>
 
+    <string name="search_hint">Find a doctor</string>
+
     <string-array name="usernameArray">
         <item>USER123</item>
         <item>USER133</item>
