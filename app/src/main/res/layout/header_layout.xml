@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:orientation="vertical"
-    >
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/item_background">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_header_business">
 
         <ImageView
             android:id="@+id/businessPicIV"
@@ -26,14 +25,16 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/businessPicIV"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
 
             <TextView
                 android:id="@+id/nameTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Dr.NumberOne"
-                android:textColor="@color/text"
+                android:textColor="@color/text_secondary"
                 android:textSize="26sp"
                 android:textStyle="bold" />
 
@@ -44,7 +45,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="0dp"
                 android:text="Location 1001 20 St."
-                android:textColor="@color/text"
+                android:textColor="@color/text_secondary"
                 android:textSize="18dp"
                 app:autoSizeTextType="uniform" />
 
@@ -56,18 +57,11 @@
                 android:padding="0dp"
                 android:textAlignment="textStart"
                 android:text="GET DIRECTIONS"
-                android:textColor="@color/text"
+                android:textColor="@color/text_secondary"
                 app:cornerRadius="30dp" />
         </LinearLayout>
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:layout_marginTop="0dp"
-        android:background="#000000"
-        android:text="TextView" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -79,6 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:text="Leave a Review"
             android:textSize="12sp"
             app:cornerRadius="30dp" />

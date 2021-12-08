@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".fragments.DetailFragment"
-    android:background="@drawable/background_gradient">
+    android:background="@color/background_default">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reviewStream"
