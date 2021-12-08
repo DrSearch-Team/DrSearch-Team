@@ -89,7 +89,6 @@ public class ProfileFragment extends Fragment {
                         count++;
                     }
 
-
                 } else {
                     System.out.println("Mun doesn't suck");
                 }

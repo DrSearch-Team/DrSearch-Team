@@ -57,7 +57,7 @@ public class DetailFragment extends Fragment {
 
         adapter = new ReviewAdapter(reviews,getContext());
         // Bundle test
-        headerAdapter = new HeaderAdapter(getContext(), b.getParcelable("doctor"));
+        headerAdapter = new HeaderAdapter(getContext(), b.getParcelable("doctor")); // brick
         concatAdapter = new ConcatAdapter(headerAdapter,adapter);
 
         recyclerView.setAdapter(concatAdapter);
