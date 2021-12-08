@@ -5,12 +5,12 @@ import android.os.Parcelable;
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
 
-import org.parceler.Parcel;
+// import org.parceler.Parcel;
 
 import java.util.ArrayList;
 
 @ParseClassName("Doctor")
-@Parcel(analyze = Doctor.class)
+// @Parcel(analyze = Doctor.class)
 public class Doctor extends ParseObject implements Parcelable {
 
     public static final String KEY_DOCTOR_NAME = "doctorName";
@@ -22,6 +22,7 @@ public class Doctor extends ParseObject implements Parcelable {
     public Doctor() { }
 
     public String getDoctorName() {
+
         return getString(KEY_DOCTOR_NAME);
     }
 
