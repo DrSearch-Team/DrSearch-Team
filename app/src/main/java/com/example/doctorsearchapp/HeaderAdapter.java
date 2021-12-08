@@ -101,26 +101,14 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
             searchBtn.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public  void onClick(View view){
-                    ParseQuery<Doctor> query = ParseQuery.getQuery(Doctor.class);
 
-                    query.getInBackground("DFs3HAdJay", new GetCallback<Doctor>() {
-                        @Override
-                        public void done(Doctor doctor, ParseException e) {
-                            if (e != null) {
-                                Log.e("SearchFragment", "Issue with getting doctors", e);
-                                return;
-                            }
-                            address = doctor.getLocation();
-                            Log.i("SearchFragment", "Location: " + address);
+                    Uri gmIntentUri =  Uri.parse("geo:0,0?q=" + doctor.getLocation());
 
-                            Uri gmIntentUri =  Uri.parse("geo:0,0?q=" + address);
+                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmIntentUri);
+                    mapIntent.setPackage("com.google.android.apps.maps");
 
-                            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmIntentUri);
-                            mapIntent.setPackage("com.google.android.apps.maps");
+                    context.startActivity(mapIntent);
 
-                            context.startActivity(mapIntent);
-                        }
-                    });
                 }
             });
         }
