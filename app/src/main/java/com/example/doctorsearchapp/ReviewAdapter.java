@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.doctorsearchapp.models.Reviews;
 import com.example.doctorsearchapp.models.Users;
+import com.parse.ParseFile;
 
 import java.util.List;
 
@@ -63,13 +64,14 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
     {
         private TextView usernameTv;
         private TextView reviewTv;
-        private ImageView profilePic;
+        private ImageView profilePicIv;
 
         public ReviewViewHolder(@NonNull View itemView) {
             super(itemView);
             usernameTv = itemView.findViewById(R.id.usernameTV);
             reviewTv = itemView.findViewById(R.id.reviewTV);
-            //profilePic = itemView.findViewById(R.id.profilePictureIV);
+            profilePicIv = itemView.findViewById(R.id.profilePicIV);
+
         }
 
         public void bind(Reviews review)
@@ -77,8 +79,12 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
             Users user = new Users(review.getUser());
             usernameTv.setText(user.getUsername());
             reviewTv.setText(review.getReview());
-            //Glide.with(context).load(user.getProfilePic().getUrl()).into(profilePic);
-        }
 
+            if(user.getProfilePic().getUrl() != null)
+            {
+               Glide.with(context).load(user.getProfilePic().getUrl()).into(profilePicIv);
+            }
+
+        }
     }
 }
