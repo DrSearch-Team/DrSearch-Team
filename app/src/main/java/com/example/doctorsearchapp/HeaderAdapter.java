@@ -94,7 +94,7 @@ public class HeaderAdapter extends RecyclerView.Adapter<HeaderAdapter.HeaderView
 
             searchBtn.setOnClickListener(new View.OnClickListener(){
                 @Override
-                public  void onClick(View view){
+                public void onClick(View view){
                     ParseQuery<Doctor> query = ParseQuery.getQuery(Doctor.class);
 
                     query.getInBackground("DFs3HAdJay", new GetCallback<Doctor>() {
