@@ -17,7 +17,7 @@ import com.example.doctorsearchapp.R;
 import com.example.doctorsearchapp.fragments.DetailFragment;
 import com.example.doctorsearchapp.models.Doctor;
 
-import org.parceler.Parcels;
+// import org.parceler.Parcels;
 
 import java.util.List;
 

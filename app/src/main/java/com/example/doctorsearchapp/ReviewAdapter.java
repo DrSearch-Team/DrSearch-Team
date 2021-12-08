@@ -1,5 +1,8 @@
 package com.example.doctorsearchapp;
 
+import static com.example.doctorsearchapp.LoginActivity.TAG;
+
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,7 +17,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.doctorsearchapp.models.Reviews;
 import com.example.doctorsearchapp.models.Users;
-import com.parse.ParseFile;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseQuery;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -64,14 +71,23 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
     {
         private TextView usernameTv;
         private TextView reviewTv;
-        private ImageView profilePicIv;
+        private TextView usernameProfile;
+        private TextView passwordProfile;
+        private ImageView profilePic;
+        private ImageView profileFragPic;
 
         public ReviewViewHolder(@NonNull View itemView) {
             super(itemView);
             usernameTv = itemView.findViewById(R.id.usernameTV);
             reviewTv = itemView.findViewById(R.id.reviewTV);
-            profilePicIv = itemView.findViewById(R.id.profilePicIV);
 
+            // Username and something
+            usernameProfile = itemView.findViewById(R.id.tvUsername);
+            passwordProfile = itemView.findViewById(R.id.tvUserId);
+
+            // exp
+            profileFragPic = itemView.findViewById(R.id.ivProfileImage);
+            profilePic = itemView.findViewById(R.id.profilePictureIV);
         }
 
         public void bind(Reviews review)
@@ -79,12 +95,11 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewView
             Users user = new Users(review.getUser());
             usernameTv.setText(user.getUsername());
             reviewTv.setText(review.getReview());
+            Log.i("ReviewAdapter", "Post: " + review.getReview() + ", ProfilePic:" + user.getProfilePic());
 
-            if(user.getProfilePic().getUrl() != null)
-            {
-               Glide.with(context).load(user.getProfilePic().getUrl()).into(profilePicIv);
-            }
-
+            // exp
+            Glide.with(context).load(user.getProfilePic().getUrl()).into(profileFragPic);
+            Glide.with(context).load(user.getProfilePic().getUrl()).into(profilePic);
         }
     }
 }

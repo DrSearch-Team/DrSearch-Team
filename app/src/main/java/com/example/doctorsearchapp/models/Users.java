@@ -1,17 +1,29 @@
 package com.example.doctorsearchapp.models;
 
+import android.os.Parcelable;
+
+import com.parse.ParseClassName;
 import com.parse.ParseFile;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 import java.text.SimpleDateFormat;
 
-public class Users {
+@ParseClassName("User")
+public class Users extends ParseObject implements Parcelable{
 
     ParseUser user;
-    private static final String KEY_IMAGE = "profilePicture";
+    public static final String KEY_IMAGE = "profilePicture";
+    public static final String KEY_USER = "username";
+
+
+    public Users(){
+        // empty
+    }
 
     public Users(ParseUser user)
     {
+
         this.user = user;
     }
 
@@ -22,12 +34,16 @@ public class Users {
 
     public ParseFile getProfilePic()
     {
+
         return user.getParseFile(KEY_IMAGE);
+    }
+
+    public String getObjectId(){
+        return user.getObjectId();
     }
 
     public String getProfileCreation()
     {
         return new SimpleDateFormat("MMMM dd, yyyy").format(user.getCreatedAt());
     }
-
 }
