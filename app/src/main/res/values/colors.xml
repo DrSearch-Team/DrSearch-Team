@@ -6,7 +6,7 @@
 
     <color name="navigation_bar">@color/dark_blue</color>
     <color name="icon_selected">@color/blue_white</color>
-    <color name="icon_unselected"></color>
+    <color name="icon_unselected">@color/dark_gray</color>
 
     <color name="card_layout">@color/white</color>
     <color name="item_background">@color/dark_gray</color>

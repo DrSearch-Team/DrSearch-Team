@@ -21,8 +21,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@drawable/nav_bar"
-        app:itemIconTint="@drawable/nav_bar_selector"
-        app:itemTextColor="@drawable/nav_bar_selector"
+        app:itemIconSize="25dp"
+        app:itemIconTint="@color/nav_bar_selector"
+        app:itemTextColor="@color/nav_bar_selector"
         app:labelVisibilityMode="unlabeled"
         app:menu="@menu/menu_bottom_navigation" />
 

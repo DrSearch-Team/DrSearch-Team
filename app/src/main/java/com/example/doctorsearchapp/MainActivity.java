@@ -62,9 +62,10 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
-                return false;
+                return true;
             }
         });
         bottomNavigationView.setSelectedItemId(R.id.action_search);
+
     }
 }
